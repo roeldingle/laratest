@@ -38,9 +38,9 @@
 
 
 						<ul class="nav navbar-nav">
-							<li class=""><a href="/home">Home</a></li>
-							<li class=""><a href="/about">About</a></li>
-							<li class=""><a href="/contact">Contact</a></li>
+							<li class="{{ (Request::is('/') ? 'active' : '') }} {{ (Request::is('*home') ? 'active' : '') }}" ><a href="/home">Home</a></li>
+							<li class="{{ (Request::is('*about') ? 'active' : '') }}"><a href="/about">About</a></li>
+							<li class="{{ (Request::is('*contact') ? 'active' : '') }}"><a href="/contact">Contact</a></li>
 						</ul>
 
 
