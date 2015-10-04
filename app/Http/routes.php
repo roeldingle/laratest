@@ -26,3 +26,10 @@ view notes:
 Route::get('/', 'PagesController@index');
 Route::get('home', 'PagesController@index');
 Route::get('about', 'PagesController@about');
+
+
+Route::get('employees', 'EmployeesController@index');
+Route::get('employees/create', 'EmployeesController@create');
+Route::get('employees/{id}', 'EmployeesController@show');
+
+Route::post('employees', 'EmployeesController@store');

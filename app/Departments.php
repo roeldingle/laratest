@@ -9,7 +9,7 @@ class Departments extends Model
     //
     //set permission to edit the following fields *refresh php artisan tinker
     protected $fillable = [
-    	'name',
+    	'department_name',
         'description',
     ];
 }

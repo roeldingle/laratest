@@ -39,7 +39,7 @@
 
 						<ul class="nav navbar-nav">
 							<li class="{{ (Request::is('/') ? 'active' : '') }} {{ (Request::is('*home') ? 'active' : '') }}" ><a href="/home">Home</a></li>
-							<li class="{{ (Request::is('*about') ? 'active' : '') }}"><a href="/about">About</a></li>
+							<li class="{{ (Request::is('*employees') ? 'active' : '') }}"><a href="/employees">Employees</a></li>
 							<li class="{{ (Request::is('*contact') ? 'active' : '') }}"><a href="/contact">Contact</a></li>
 						</ul>
 
@@ -49,17 +49,12 @@
 			</nav>
 			<!--end navigation-->
 
-			<!--header-->
-			<div class="jumbotron">
-				<h1>Learning Laravel</h1> 
-				<p>this is my setup to learn laravel</p> 
-			</div>
-			<!--end header-->
-
+			
+			<div class="container">
 			<!--page contents-->
 			@yield('content')
 			<!--end page contents-->
-
+			</div>
 
 		</div>
     
