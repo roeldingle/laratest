@@ -74,7 +74,6 @@ class EmployeesController extends Controller
      */
     public function show($id)
     {
-        //
 
         $employee = Employees::findOrFail($id);
         $employee_department = Departments::findOrFail($employee->department_id);
