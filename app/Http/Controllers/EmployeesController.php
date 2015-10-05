@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Request;
 
 use App\Employees;
 use App\Departments;
 use Carbon\Carbon;
 use App\Http\Requests;
+use App\Http\Requests\CreateEmployeesRequest;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -44,7 +44,8 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        return view('pages.createEmployee');
+        $departments = Departments::lists('department_name', 'id');
+        return view('pages.createEmployee', compact('departments'));
     }
 
     /**
@@ -53,14 +54,9 @@ class EmployeesController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store()
+    public function store(CreateEmployeesRequest $request)
     {
-        $input = Request::all();
-
-        $input['department_id'] = (int)$input['department_id'] + 1;
-
-        //return $input;
-
+        $input = $request->all();
         Employees::create($input);
 
         return redirect('employees');

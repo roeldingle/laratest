@@ -21,7 +21,7 @@
 
     	<div class="form-group">
     		{!! Form::label('department_id', 'Department:') !!}
-    		{!! Form::select('department_id', ['Creative Tech','Creative Design','Content Writers','Business Development', 'Sprnklr'], null,  ['class' => 'form-control']) !!}
+    		{!! Form::select('department_id', $departments , null,  ['class' => 'form-control']) !!}
     	</div>
 
     	<div class="form-group">
@@ -35,6 +35,15 @@
     		
 
     	{!! Form::close() !!}
+
+        @if($errors->any())
+            <ul class="alert alert-danger">
+
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 </div>
 @stop
