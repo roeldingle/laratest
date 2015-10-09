@@ -28,8 +28,17 @@ Route::get('home', 'PagesController@index');
 Route::get('about', 'PagesController@about');
 
 
+
+
+
+/*
+	Employee controller
+
 Route::get('employees', 'EmployeesController@index');
 Route::get('employees/create', 'EmployeesController@create');
 Route::get('employees/{id}', 'EmployeesController@show');
 
 Route::post('employees', 'EmployeesController@store');
+
+*/
+Route::resource('employees','EmployeesController');

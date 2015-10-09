@@ -7,7 +7,7 @@ use App\Employees;
 use App\Departments;
 use Carbon\Carbon;
 use App\Http\Requests;
-use App\Http\Requests\CreateEmployeesRequest;
+use App\Http\Requests\EmployeesRequest;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -54,7 +54,7 @@ class EmployeesController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(CreateEmployeesRequest $request)
+    public function store(EmployeesRequest $request)
     {
         $input = $request->all();
         Employees::create($input);
@@ -75,10 +75,25 @@ class EmployeesController extends Controller
         $employee_department = Departments::findOrFail($employee->department_id);
         $employee->department_name = $employee_department->department_name;
 
-        //return $employee;
-
         return view('pages.showEmployee', compact('employee'));
     }
 
+    public function edit($id)
+    {
+        $employee = Employees::findOrFail($id);
+        $departments = Departments::lists('department_name', 'id');
+        return view('pages.editEmployee', compact('employee', 'departments'));
+
+    }
+
+    public function update($id, EmployeesRequest $request)
+    {
+        $employee = Employees::findOrFail($id);
+
+        $employee->update($request->all());
+
+        return redirect('employees');
+
+    }
   
 }
