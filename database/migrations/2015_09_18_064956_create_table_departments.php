@@ -18,6 +18,31 @@ class CreateTableDepartments extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        /*
+        $table->insert(
+            array(
+                'department_name' => 'Creative Technology',
+                'description' => 'team of web developers and programmers'
+            ),
+            array(
+                'department_name' => 'Creative Design',
+                'description' => 'team of web designers and artist'
+            ),
+            array(
+                'department_name' => 'Business Development',
+                'description' => 'client relationship managers'
+            ),
+            array(
+                'department_name' => 'Social Media',
+                'description' => 'team of social media analyst'
+            ),
+            array(
+                'department_name' => 'Sprklr',
+                'description' => 'team of data analyst'
+            )
+        );
+        */
     }
 
     /**

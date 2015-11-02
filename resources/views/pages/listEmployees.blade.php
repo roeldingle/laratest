@@ -17,6 +17,7 @@
                 <th>Employee Name</th>
                 <th>Department</th>
                 <th>Email</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -28,10 +29,16 @@
 	                <td>{{$employee->id}}</td>
 	                <td>
                         <a href="{{ action('EmployeesController@show',[$employee->id])}}">
-                            {{$employee->fname}} {{$employee->lname}}</td>
+                            {{$employee->fname}} {{$employee->lname}}
                         </a>
+                    </td>
 	                <td>{{$employee->department_name}}</td>
 	                <td>{{$employee->email}}</td>
+                    <td>
+                        <a href="{{ action('EmployeesController@edit',[$employee->id])}}">
+                            Edit
+                        </a>
+                    </td>
 	            </tr>
                 
 	        	@endforeach
